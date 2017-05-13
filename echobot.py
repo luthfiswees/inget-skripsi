@@ -1,5 +1,4 @@
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
-from flask import Flask
 import logging
 import datetime
 import os
@@ -88,12 +87,5 @@ def main():
     # start_polling() is non-blocking and will stop the bot gracefully.
     updater.idle()
 
-app = Flask(__name__)
-
-@app.route("/")
-def hello():
-    return "Hello World!"
-
 if __name__ == '__main__':
-    main()
     app.run()
