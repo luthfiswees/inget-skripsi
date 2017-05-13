@@ -1,13 +1,18 @@
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
+from flask import Flask
 import logging
 import datetime
 import os
 from wit import Wit
 import db
+from flask.ext.heroku import Heroku
 
 # Wit.ai object initialization
 client = Wit(access_token=os.environ["WIT_AI_API_KEY"])
 
+app = Flask(__name__)
+app.config['SECRET_KEY'] = "random string"
+heroku = Heroku(app)
 
 # Enable logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -90,6 +95,14 @@ def main():
     # start_polling() is non-blocking and will stop the bot gracefully.
     updater.idle()
 
+@app.route('/')  # the requests handled successfully!
+def hello_world():
+    return 'Hello World!'
+
 if __name__ == '__main__':
     main()
     PORT = int(os.environ.get('PORT', '5000'))
+
+    app.run(host='0.0.0.0', port=PORT)
+    while 1:
+        time.sleep(10)
