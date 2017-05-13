@@ -8,6 +8,7 @@ import db
 # Wit.ai object initialization
 client = Wit(access_token=os.environ["WIT_AI_API_KEY"])
 
+
 # Enable logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                     level=logging.INFO)
@@ -23,7 +24,6 @@ def start(bot, update):
 
 def help(bot, update):
     update.message.reply_text('Yang bisa menolong skripsi anda hanyalah diri anda sendiri -LKP')
-
 
 def echo(bot, update):
     resp = client.message(update.message.text)
