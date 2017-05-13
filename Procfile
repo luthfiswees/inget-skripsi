@@ -1,1 +1,1 @@
-worker: python echobot.py
+web: python echobot.py
