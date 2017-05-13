@@ -64,7 +64,6 @@ def error(bot, update, error):
 
 def main():
     # For port binding and token
-    PORT = int(os.environ.get('PORT', '5000'))
     TOKEN = os.environ['TELEGRAM_API_KEY']
 
     # Create the EventHandler and pass it your bot's token.
@@ -93,3 +92,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+    PORT = int(os.environ.get('PORT', '5000'))
