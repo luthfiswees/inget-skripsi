@@ -60,6 +60,10 @@ def echo(bot, update):
             update.message.reply_text("Napa tot")
         else:
             update.message.reply_text("Kok kamu jahat ... :(")
+    elif intent == 'dissapointment':
+        update.message.reply_text("Semangat! hidup masih panjang :)")
+    elif intent == 'greetings':
+        update.message.reply_text("Haloo! \n \nHari yang cerah untuk revisi baru hari ini. Tetep semangat ya!")
     else:
         update.message.reply_text("Kamu ngomong apa sih :(")
 
